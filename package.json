@@ -1,0 +1,29 @@
+{
+  "name": "Mini-Muscles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react-dom": "^17.0.2",
+    "react": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlakeGeo/Mini-Muscles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlakeGeo/Mini-Muscles/issues"
+  },
+  "homepage": "https://github.com/BlakeGeo/Mini-Muscles#readme"
+}
