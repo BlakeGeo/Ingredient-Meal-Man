@@ -22,7 +22,7 @@ const typeDefs = gql`
         user: User
     }
 
-    type mealInput {
+    input mealInput {
         mealId: Int
         title: String
         description: String
