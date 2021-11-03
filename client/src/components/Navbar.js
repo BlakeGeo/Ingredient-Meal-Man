@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link as ReactLink} from 'react-router-dom';
+import { Link } from '@chakra-ui/react';
+
+import Auth from '../utils/auth';
 
 export default function Navbar() {
 
@@ -21,21 +24,27 @@ export default function Navbar() {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }
-
   });    
   
   return (
     <header>
-      <div>
-          <p>Mini</p>
-          <p>Muscles</p>
-      </div>
+      <div>MM</div>
       <div id="navBar" className="mdl-navigation">
-        <NavLink id="link-navbar" to="/React-Portfolio">Home</NavLink>
-        <NavLink id="link-navbar" to="/about">About</NavLink>
-        <NavLink id="link-navbar" to="/projects">Projects</NavLink>
-        <NavLink id="link-navbar" to="/curriculumvitae">CV</NavLink>
-        <NavLink id="link-navbar" to="/contact">Contact</NavLink>
+        {/* if user is logged in, show profile, logout */}
+        {Auth.loggedIn() ? (
+            <>
+                <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
+                <Link id="link-navbar" as={ReactLink} to="/profile">Profile</Link>
+                <Link id="link-navbar" onClick={Auth.logout}>Logout</Link>
+            </>
+        ) : (
+            <>
+                <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
+                <Link id="link-navbar" as={ReactLink} to="/login">Login</Link>
+                <Link id="link-navbar" as={ReactLink} to="/signup">Signup</Link>
+            </>
+        )}
+
       </div>
       <div class="hamburger">
         <span class="bar"></span>
