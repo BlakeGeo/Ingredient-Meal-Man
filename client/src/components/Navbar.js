@@ -5,6 +5,10 @@ import { Link } from '@chakra-ui/react';
 import Auth from '../utils/auth';
 
 export default function Navbar() {
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+      };
 
   useEffect(() => {
 
@@ -34,8 +38,8 @@ export default function Navbar() {
         {Auth.loggedIn() ? (
             <>
                 <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
-                <Link id="link-navbar" as={ReactLink} to="/profile">Profile</Link>
-                <Link id="link-navbar" onClick={Auth.logout}>Logout</Link>
+                <Link id="link-navbar" as={ReactLink} to="/profile">{Auth.getProfile().data.username}'s Profile</Link>
+                <Link id="link-navbar" onClick={logout}>Logout</Link>
             </>
         ) : (
             <>
