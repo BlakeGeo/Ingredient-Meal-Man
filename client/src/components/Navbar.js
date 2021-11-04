@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header>
       <div>MM</div>
-      <div id="navBar" className="mdl-navigation">
+      <div id="navBar">
         {/* if user is logged in, show profile, logout */}
         {Auth.loggedIn() ? (
             <>

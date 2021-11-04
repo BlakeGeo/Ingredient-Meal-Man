@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -7,7 +6,10 @@ import { setContext } from '@apollo/client/link/context';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Profile from './pages/Profile';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+
+// import Profile from './pages/Profile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -38,14 +40,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Box w="100%" bgGradient="linear(to-r, blue.100, cyan.300)">
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+
+            {/* <Route exact path='/profile' component={Profile} /> */}
           </Switch>
           <Footer />
-        </Box>
       </Router>
     </ApolloProvider>
     
