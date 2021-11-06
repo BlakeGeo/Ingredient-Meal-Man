@@ -24,6 +24,7 @@ const resolvers = {
       }
 
       const correctPassword = await user.isCorrectPassword(password);
+      
       if (!correctPassword) {
         throw new AuthenticationError("Invalid username or password");
       }

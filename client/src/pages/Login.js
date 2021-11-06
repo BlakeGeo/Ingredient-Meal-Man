@@ -83,7 +83,7 @@ export default function Login() {
                                 {error.message}
                             </Text>
                         )}
-                    <Link href='/signup'>Don't already have an account? Signip here!</Link>
+                    <Link href='/signup'>Don't already have an account? Signup here!</Link>
                 </VStack>
             </Flex>
         </Box>
