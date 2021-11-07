@@ -61,6 +61,14 @@ header {
     background-color: black;
 }
 
+.Forms {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
 footer {
   background: linear-gradient(to right, #BEE3F8, #76E4F7);
   position: absolute;

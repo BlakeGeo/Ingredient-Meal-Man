@@ -39,8 +39,8 @@ export default function Signup() {
 
     return (
         <Box w='100%' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)" >
-            <Flex h='100vh' py={10}>
-                <VStack w='full' spacing={4} bg='blue.500' h='75%' p={4} borderRadius={20}>
+            <Flex h='100vh' py={10} justify='center'>
+                <VStack w='70%' spacing={4} bg='blue.500' h='70%' p={10} borderRadius={20} shadow='2xl'>
                     <Heading>Signup</Heading>
                     {data ? (
               <p>
@@ -48,8 +48,8 @@ export default function Signup() {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-                    <form onSubmit={handleFormSubmit}>                    
-                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} w='80%'>
+                    <form className='Forms' onSubmit={handleFormSubmit}>                    
+                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} my={2}>
                             <Input 
                                 placeholder='Username'
                                 name='username'
@@ -58,7 +58,7 @@ export default function Signup() {
                                 onChange={handleChange}                            
                             />
                         </FormControl>
-                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} w='80%'>
+                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} my={2}>
                             <Input 
                                 placeholder='Email'
                                 name='email'
@@ -67,7 +67,7 @@ export default function Signup() {
                                 onChange={handleChange}
                             />
                         </FormControl>
-                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} w='80%'>
+                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10} my={2}>
                             <Input
                                 placeholder='Password'
                                 name='password'
@@ -77,7 +77,7 @@ export default function Signup() {
                             />
                         </FormControl>
                         <Button
-                            size='md' w='80%' 
+                            size='md' w='100%' 
                             type='submit'
                         > 
                             Signup
