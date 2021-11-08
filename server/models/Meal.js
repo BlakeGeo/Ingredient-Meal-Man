@@ -2,7 +2,7 @@ const { Schema } = require('mongoose');
 
 const mealSchema = new Schema({
   mealId: {
-    type: Number,
+    type: String,
     required: true,
   },
   label: {

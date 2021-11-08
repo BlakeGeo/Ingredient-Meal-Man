@@ -5,9 +5,23 @@ import { CheckCircleIcon } from '@chakra-ui/icons';
 import { SAVE_MEAL } from "../utils/mutations";
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
+import { saveMealIds, getSavedMealIds } from "../utils/localStorage";
 
 export default function RecipeCard({recipe}) {
-    const [saveMeal, setSaveMeal] = useState('');
+
+    
+
+    const [savedMealIds, setSavedMealIds] = useState(getSavedMealIds());
+
+    useEffect(() => {
+        return () => {
+            saveMealIds(savedMealIds);
+        };
+    })
+
+    const [saveMeal, { error }] = useMutation(SAVE_MEAL);
+
+    
 
 
     return (
@@ -20,6 +34,7 @@ export default function RecipeCard({recipe}) {
                             <Text fontSize='md' fontWeight='bold' textAlign='center' key={uuidv4()}>{recipe['recipe']['label']}</Text>
                             <Link onClick={() => window.open(recipe['recipe']['url'])}>Recipe</Link>
                             <Text fontSize='md'>{Math.floor(recipe['recipe']['calories'])}</Text>
+                            
                         </VStack>
                         <IconButton
                             variant='outline'
