@@ -4,7 +4,20 @@ import { v4 as uuidv4 } from 'uuid';
 import { SAVE_MEAL } from "../utils/mutations";
 import Auth from '../utils/auth';
 import { saveMealIds, getSavedMealIds } from "../utils/localStorage";
-import {  Select, SimpleGrid, Box, Heading, Flex, VStack, HStack, Text, FormControl, Input, Button, Link, Image, IconButton } from '@chakra-ui/react';
+import { Select, 
+        SimpleGrid, 
+        Box, 
+        Heading, 
+        Flex, 
+        VStack, 
+        HStack, 
+        Text, 
+        FormControl, 
+        Input, 
+        Button, 
+        Link, 
+        Image, 
+        IconButton } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
 
@@ -13,7 +26,7 @@ export default function Home() {
     // set states for all
     const [query, setQuery] = useState('');
     const [recipes, setRecipes] = useState([]);
-    const [healthLabel, setHealthLabel] = useState('vegan');
+    const [healthLabel, setHealthLabel] = useState('alcohol-free');
     const [savedMealIds, setSavedMealIds] = useState(getSavedMealIds());
 
     useEffect(() => {
@@ -52,39 +65,38 @@ export default function Home() {
         e.preventDefault();
         getRecipeInfo();
     };
+    // handles the select menu
+    const handleHealth = (e) => {
+        setHealthLabel(e.target.value);
+    };
 
     // save meal to profile
     const handleSaveMeal = async(mealId) => {
         const mealToSave = recipes.find((meal) => meal.mealId === mealId);
-
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if(!token) {
             return false;
         }
-
         try {
             const response = await saveMeal({
                 variables: {
                     input: mealToSave,
                 },
             });
-
             if (!response) {
                 throw new Error('Something went wrong!')
             }
-
             // if meal succesfully saves to profile, save meal id to state
             setSavedMealIds([...savedMealIds, mealToSave.mealId]);
-
         } catch (err) {
-            console.error(err);
+            console.error(error);
         }
     };
 
     return (
-    <Box w='100%' h='100%' px={4} py={20} bgGradient="linear(to-r, blue.100, cyan.300)">
-        <Flex h='100%' py={4}>
+    <Box w='100%' minH='100vh' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)">
+        <Flex py={10}>
             <VStack w='full' h='full' p={4} spacing={10}>
                 <Heading textAlign='center'>Welcome to Mini Muscles</Heading>
                 <VStack spacing={3}>
@@ -109,17 +121,20 @@ export default function Home() {
                         >
                             Search
                         </Button>
-                        <Select maxW={40} bg='white'>
-                            <option onClick={() => setHealthLabel('vegan')}>Vegan</option>
-                            <option onClick={() => setHealthLabel('vegetarian')} value={healthLabel}>Vegetarian</option>
-                            <option onClick={() => setHealthLabel('paleo')}>Paleo</option>
-                            <option onClick={() => setHealthLabel('dairy-free')}>Dairy free</option>
-                            <option onClick={() => setHealthLabel('gluten-free')}>Gluten free</option>
-                            <option onClick={() => setHealthLabel('wheat-free')}>Wheat free</option>
-                            <option onClick={() => setHealthLabel('fat-free')}>Fat free</option>
-                            <option onClick={() => setHealthLabel('egg-free')}>Egg free</option>
-                            <option onClick={() => setHealthLabel('peanut-free')}>Peanut free</option>
-                            <option onClick={() => setHealthLabel('fish-free')}>Fish free</option>
+                        <Select maxW={40} bg='white'
+                                value={healthLabel}
+                                onChange={handleHealth}
+                        >
+                            <option value='alcohol-free'>Alcohol free</option>
+                            <option value='vegan'>Vegan</option>
+                            <option value='vegetarian'>Vegetarian</option>
+                            <option value='paleo'>Paleo</option>
+                            <option value='dairy-free'>Dairy free</option>
+                            <option value='gluten-free'>Gluten free</option>
+                            <option value='wheat-free'>Wheat free</option>
+                            <option value='egg-free'>Egg free</option>
+                            <option value='peanut-free'>Peanut free</option>
+                            <option value='fish-free'>Fish free</option>
                         </Select>
                     </HStack>
                 </form>
@@ -158,9 +173,7 @@ export default function Home() {
                                                     ? 'solid'
                                                     : 'outline'
                                                 }
-                                                </IconButton>
-
-
+                                            </IconButton>
                                         )}
                                     </HStack>
                                 </VStack>

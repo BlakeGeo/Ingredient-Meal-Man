@@ -45,6 +45,7 @@ header {
     margin: auto;
     text-decoration: none;
     padding: 10px;
+    font-weight: 600;
   }
 
   .hamburger {

@@ -41,9 +41,9 @@ export default function Login() {
     
     
     return (
-        <Box w='100%' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)" >
-            <Flex h='100vh' py={10} justify='center'>
-                <VStack w='70%' spacing={4} bg='blue.500' h='70%' p={10} borderRadius={20} shadow='2xl'>
+        <Box w='100%' minH='100vh' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)" >
+            <Flex py={10} justify='center'>
+                <VStack w='90%' spacing={4} bg='blue.500' h='70%' p={10} borderRadius={20} shadow='2xl'>
                     <Heading>Login</Heading>
                     {data ? (
               <p>
