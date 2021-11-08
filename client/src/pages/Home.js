@@ -1,7 +1,4 @@
 import React, {useState, useEffect } from 'react';
-import Auth from '../utils/auth';
-import { useMutation } from '@apollo/client';
-import { SAVE_MEAL } from '../utils/mutations';
 import Axios from 'axios';
 import RecipeCard from '../components/RecipeCard';
 import { Select, SimpleGrid, Box, Heading, Flex, VStack, HStack, Text, FormControl, Input, Button } from '@chakra-ui/react'
@@ -14,7 +11,7 @@ export default function Home() {
     const APP_ID = 'f9382f9a';
     const APP_KEY = 'e956104a103ceb2c521c3b461beb2f14';
 
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&health=${healthLabel}`;
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=4&health=${healthLabel}`;
 
     const getRecipeInfo = async () => {
         const result = await Axios.get(url);
@@ -50,8 +47,8 @@ export default function Home() {
                             />
                         </FormControl>
                         <Button
-                        size='md'
-                        type='submit'
+                            size='md'
+                            type='submit'
                         >
                             Search
                         </Button>

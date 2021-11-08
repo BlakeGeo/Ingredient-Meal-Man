@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Flex, Image, Text, VStack, Link, IconButton, HStack } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
+import { SAVE_MEAL } from "../utils/mutations";
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
 
 export default function RecipeCard({recipe}) {
+    const [saveMeal, setSaveMeal] = useState('');
+
+
     return (
         recipe['recipe']['image'].match(/\.(jpeg|jpg|gif|png)$/) !== null && (
             <Flex className='recipeCard' >
@@ -11,8 +17,9 @@ export default function RecipeCard({recipe}) {
                     <Image src={recipe['recipe']['image']} />
                     <HStack spacing={4}>
                         <VStack spacing={0}>
-                            <Text fontSize='md' fontWeight='bold' key={uuidv4()}>{recipe['recipe']['label']}</Text>
+                            <Text fontSize='md' fontWeight='bold' textAlign='center' key={uuidv4()}>{recipe['recipe']['label']}</Text>
                             <Link onClick={() => window.open(recipe['recipe']['url'])}>Recipe</Link>
+                            <Text fontSize='md'>{Math.floor(recipe['recipe']['calories'])}</Text>
                         </VStack>
                         <IconButton
                             variant='outline'

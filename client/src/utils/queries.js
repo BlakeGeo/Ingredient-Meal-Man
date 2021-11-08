@@ -8,9 +8,9 @@ export const GET_ME = gql`
       email
       savedMeals {
         mealId
-        title
-        description
+        label
         imageURL
+        mealURL
       }
     }
   }

@@ -32,9 +32,9 @@ export const SAVE_MEAL = gql`
       _id
       savedMeals {
         mealId
-        title
-        description
+        label
         imageURL
+        mealURL
       }
     }
   }
@@ -47,9 +47,9 @@ export const REMOVE_MEAL = gql`
       username
       savedMeals {
         mealId
-        title
-        description
+        label
         imageURL
+        mealURL
       }
     }
   }

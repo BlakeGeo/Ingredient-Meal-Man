@@ -4,9 +4,9 @@ const typeDefs = gql`
 
     type Meal {
         mealId: Int!
-        title: String!
-        description: String
+        label: String!
         imageURL: String
+        mealURL: String
     }
 
     type User {
@@ -23,10 +23,10 @@ const typeDefs = gql`
     }
 
     input mealInput {
-        mealId: Int
-        title: String
-        description: String
+        mealId: Int!
+        label: String!
         imageURL: String
+        mealURL: String
     }
 
     type Query {
