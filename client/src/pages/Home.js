@@ -98,10 +98,10 @@ export default function Home() {
     <Box w='100%' minH='100vh' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)">
         <Flex py={10}>
             <VStack w='full' h='full' p={4} spacing={10}>
-                <Heading textAlign='center'>Welcome to Mini Muscles</Heading>
-                <VStack spacing={3}>
-                    <Text>Our mission here at Mini Muscles is to provide easy access to healthy meals for children.</Text>
-                    <Text>Start by searching our meals below, and once logged in you will be able to save your favourite meals.</Text>
+                <Heading textAlign='center'>Welcome to Ingredient Meal Man</Heading>
+                <VStack textAlign='center' spacing={3}>
+                    <Text>Here at Ingredient Meal Man we strive to acheive zero waste pantries. Don't let those odd ingredients go to waste!</Text>
+                    <Text>Start by searching your ingredient below and be specific if you want to. Once logged in you will be able to save your favourite meals.</Text>
                 </VStack>
                 <form className='Forms' onSubmit={handleSearchSubmit}>
                     <HStack w='full'>
@@ -141,7 +141,7 @@ export default function Home() {
 
                 <Text align='left' fontSize='xl' fontWeight='bold'>
                     {recipes.length
-                    ? `Viewing ${recipes.length} ${query} results:`
+                    ? `Viewing ${recipes.length} results.`
                     : 'Search for an ingredient or meal to begin'}
                 </Text>
                 <SimpleGrid columns={{sm: 2, md: 3, lg: 4}} spacing={10}>
@@ -152,7 +152,7 @@ export default function Home() {
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
                                         />
-                                    <HStack spacing={4}>
+                                    <HStack borderBottom='outset' pb={4} spacing={4}>
                                         <VStack spacing={0}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                
@@ -168,10 +168,7 @@ export default function Home() {
                                                 onClick={() => handleSaveMeal(meal.mealId)}
                                                 >
                                                 {savedMealIds?.some(
-                                                    (savedMealId) => savedMealId === meal.mealId
-                                                    )
-                                                    ? 'solid'
-                                                    : 'outline'
+                                                    (savedMealId) => savedMealId === meal.mealId)
                                                 }
                                             </IconButton>
                                         )}

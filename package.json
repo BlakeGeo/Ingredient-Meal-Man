@@ -1,5 +1,5 @@
 {
-  "name": "Mini-Muscles",
+  "name": "Ingredient-Meal-Man",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,13 +22,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlakeGeo/Mini-Muscles.git"
+    "url": "git+https://github.com/BlakeGeo/Ingredient-Meal-Man.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BlakeGeo/Mini-Muscles/issues"
+    "url": "https://github.com/BlakeGeo/Ingredient-Meal-Man/issues"
   },
-  "homepage": "https://github.com/BlakeGeo/Mini-Muscles#readme"
+  "homepage": "https://github.com/BlakeGeo/Ingredient-Meal-Man#readme"
 }

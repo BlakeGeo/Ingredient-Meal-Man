@@ -16,7 +16,7 @@ import { SimpleGrid,
         IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
-export default function Profile() {
+export default function Recipes() {
     const { loading, data } = useQuery(GET_ME);
     const userData = data?.me || [];
 
@@ -51,12 +51,12 @@ export default function Profile() {
     return (
         <Box w='100%' minH='100vh' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)">
             <Flex py={10}>
-            <VStack w='full' h='full' p={4} spacing={10}>
-            <Text align='left' fontSize='xl' fontWeight='bold'>
-                    {userData.savedMeals.length
-                    ? `Viewing ${userData.savedMeals.length} saved ${userData.savedMeals.length === 1 ? 'meal' : 'meals'}:`
-                    : 'You have no meals saved!'}
-                </Text>
+                <VStack w='full' h='full' p={4} spacing={10}>
+                    <Text align='left' fontSize='xl' fontWeight='bold'>
+                        {userData.savedMeals.length
+                        ? `Viewing ${userData.savedMeals.length} saved ${userData.savedMeals.length === 1 ? 'meal' : 'meals'}:`
+                        : 'You have no meals saved!'}
+                    </Text>
                 <SimpleGrid columns={{sm: 2, md: 3, lg: 4}} spacing={10}>
                     {userData.savedMeals.map((meal) => {
                         return (
@@ -65,7 +65,7 @@ export default function Profile() {
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
                                         />
-                                    <HStack spacing={4}>
+                                    <HStack borderBottom='outset' pb={4} spacing={4}>
                                         <VStack spacing={0}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                

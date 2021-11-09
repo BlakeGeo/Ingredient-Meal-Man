@@ -32,13 +32,13 @@ export default function Navbar() {
   
   return (
     <header>
-      <div>MM</div>
+      <div>IMM</div>
       <div id="navBar">
         {/* if user is logged in, show profile, logout */}
         {Auth.loggedIn() ? (
             <>
                 <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
-                <Link id="link-navbar" as={ReactLink} to="/profile">{Auth.getProfile().data.username}'s Profile</Link>
+                <Link id="link-navbar" as={ReactLink} to="/recipes">{Auth.getProfile().data.username}'s Recipes</Link>
                 <Link id="link-navbar" onClick={logout}>Logout</Link>
             </>
         ) : (

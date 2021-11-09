@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Profile from './pages/Profile';
+import Recipes from './pages/Profile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = new HttpLink({
@@ -44,7 +44,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
-            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/recipes' component={Recipes} />
           </Switch>
           <Footer />
       </Router>
