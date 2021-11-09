@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link as ReactLink} from 'react-router-dom';
-import { Link } from '@chakra-ui/react';
+import { Link, Image } from '@chakra-ui/react';
 
 import Auth from '../utils/auth';
 
@@ -32,7 +32,7 @@ export default function Navbar() {
   
   return (
     <header>
-      <div>IMM</div>
+      <Image id='logo' src='https://images.all-free-download.com/images/graphiclarge/cartoon_cook_cute_design_vector_541584.jpg' borderRadius={50} alt='cartoon chef' />
       <div id="navBar">
         {/* if user is logged in, show profile, logout */}
         {Auth.loggedIn() ? (
@@ -50,6 +50,7 @@ export default function Navbar() {
         )}
 
       </div>
+
       <div class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>

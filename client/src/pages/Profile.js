@@ -66,7 +66,7 @@ export default function Recipes() {
                                             alt={`Photo of ${meal.label}`}
                                         />
                                     <HStack borderBottom='outset' pb={4} spacing={4}>
-                                        <VStack spacing={0}>
+                                        <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                
                                         </VStack>

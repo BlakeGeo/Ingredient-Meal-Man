@@ -14,52 +14,50 @@ header {
     position: fixed;
     background: linear-gradient(to left, #BEE3F8, #76E4F7);
     width: 100%;
-    min-height: 80px;
+    min-height: 100px;
     max-height: 1000px;
     z-index: 3;
     box-shadow: 0 2px 2px;
   }
 
-  header div {
-    display: inline-flex;
-    padding: 10px 0 10px 2rem;
-    color: black;
-    font-size: 40px;
-    height: 80px;
-    margin: auto;
-
-  }
+#logo {
+  display: inline-flex;
+  height: 80px;
+  margin: auto;
+  margin-left: 20px;
+  margin-top: 10px;
+}
   
-  #navBar {
-    display: flex;
-    flex-direction: row;
-    height: 80px;
-    float: right;
-    padding-right: 1rem;
-  }
+#navBar {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  float: right;
+  padding-right: 0;
+}
 
-  #link-navbar {
-    font-size: 20px;
-    color: black;
-    width: 50%;
-    margin: auto;
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-  }
+#link-navbar {
+  font-size: 20px;
+  color: black;
+  width: 50%;
+  margin: auto;
+  text-decoration: none;
+  padding: 5px;
+  font-weight: 600;
+}
 
-  .hamburger {
+.hamburger {
 	display: none;
 }
 
 .bar {
 	display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: black;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
 }
 
 .Forms {
@@ -87,16 +85,15 @@ footer h3 {
 @media  screen and (max-width: 480px) {
 	#navBar {
 		position: fixed;
-        left: -100%;
-        flex-direction: column;
-        background: linear-gradient(to right, #4299E1, #2C5282);
-        width: 100%;
-        height: 25vh;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
-	}
+    left: -100%;
+    flex-direction: column;
+    background: linear-gradient(to right, #4299E1, #2C5282);
+    width: 100%;
+    height: 25vh;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 10px;
+  }
 
 	#navBar.active {
 		left: 0;
@@ -109,20 +106,20 @@ footer h3 {
 	.hamburger {
 		display: block;
 		cursor: pointer;
-        float: right;
-        padding-right: 2rem;
-        padding-top: 1.5rem;
+    float: right;
+    padding-right: 2rem;
+    padding-top: 2rem;
 	}
 
 	.hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
+    opacity: 0;
+  }
 
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
 
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
