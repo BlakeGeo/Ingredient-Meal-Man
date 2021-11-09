@@ -44,8 +44,7 @@ export default function Navbar() {
         ) : (
             <>
                 <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
-                <Link id="link-navbar" as={ReactLink} to="/login">Login</Link>
-                <Link id="link-navbar" as={ReactLink} to="/signup">Signup</Link>
+                <Link id="link-navbar" as={ReactLink} to="/loginsignup">Login/Signup</Link>
             </>
         )}
 

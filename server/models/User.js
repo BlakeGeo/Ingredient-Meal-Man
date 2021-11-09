@@ -20,7 +20,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      // minlength: [8, 'Must be at least 8 characters long'],
+      minlength: [8, 'Must be at least 8 characters long'],
     },
     // set savedMeals to be an array of data that adheres to the mealSchema
     savedMeals: [mealSchema],
