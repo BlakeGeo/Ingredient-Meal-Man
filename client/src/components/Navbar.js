@@ -12,6 +12,7 @@ export default function Navbar() {
 
   useEffect(() => {
 
+
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector("#navBar");
     const navLink = document.querySelectorAll("#link-navbar");
@@ -37,14 +38,14 @@ export default function Navbar() {
         {/* if user is logged in, show profile, logout */}
         {Auth.loggedIn() ? (
             <>
-                <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
-                <Link id="link-navbar" as={ReactLink} to="/recipes">{Auth.getProfile().data.username}'s Recipes</Link>
-                <Link id="link-navbar" onClick={logout}>Logout</Link>
+                <Link id="link-navbar" boxShadow='none!important' as={ReactLink} to="/">Home</Link>
+                <Link id="link-navbar" boxShadow='none!important' as={ReactLink} to="/recipes">{Auth.getProfile().data.username}'s Recipes</Link>
+                <Link id="link-navbar" boxShadow='none!important' onClick={logout}>Logout</Link>
             </>
         ) : (
             <>
-                <Link id="link-navbar" as={ReactLink} to="/">Home</Link>
-                <Link id="link-navbar" as={ReactLink} to="/loginsignup">Login/Signup</Link>
+                <Link id="link-navbar" boxShadow='none!important' as={ReactLink} to="/">Home</Link>
+                <Link id="link-navbar" boxShadow='none!important' as={ReactLink} to="/loginsignup">Login/Signup</Link>
             </>
         )}
 

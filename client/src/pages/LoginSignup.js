@@ -11,8 +11,8 @@ export default function LoginSignup() {
                 <VStack w='90%' spacing={4} bg='#2E8BC0' h='70%' p={10} borderRadius={20} shadow='2xl'>
                     <Tabs variant='line' colorScheme='red' size='lg'>
                         <TabList>
-                            <Tab w='50%'>Login</Tab>
-                            <Tab w='50%'>Signup</Tab>
+                            <Tab boxShadow='none!important' w='50%'>Login</Tab>
+                            <Tab boxShadow='none!important' w='50%'>Signup</Tab>
                         </TabList>
                         <TabPanels>
                             <TabPanel>
