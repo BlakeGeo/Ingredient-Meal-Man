@@ -22,6 +22,8 @@ import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
 
 
+
+
 export default function Home() {
     // set states for all
     const [query, setQuery] = useState('');
@@ -37,10 +39,9 @@ export default function Home() {
 
     const [saveMeal, { error }] = useMutation(SAVE_MEAL);
 
-    const APP_ID = 'f9382f9a';
-    const APP_KEY = 'e956104a103ceb2c521c3b461beb2f14';
+    const {REACT_APP_API_KEY, REACT_APP_ID} = process.env;
 
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=4&health=${healthLabel}`;
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${REACT_APP_ID}&app_key=${REACT_APP_API_KEY}&from=0&to=4&health=${healthLabel}`;
 
     // fetch data from api
     const getRecipeInfo = async () => {
