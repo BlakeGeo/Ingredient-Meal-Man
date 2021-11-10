@@ -48,7 +48,8 @@ export default function Home() {
         const result = await Axios.get(url);
 
         const mealData = result.data.hits.map((meal) => ({
-            mealId: uuidv4(),
+            // no given id so using recipe calories instead
+            mealId: Math.floor(meal.recipe.calories),
             label: meal.recipe.label,
             imageURL: meal.recipe.image,
             mealURL: meal.recipe.url,

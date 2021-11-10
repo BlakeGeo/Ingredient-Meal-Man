@@ -41,7 +41,7 @@ export const SAVE_MEAL = gql`
 `;
 
 export const REMOVE_MEAL = gql`
-  mutation removeMeal($mealId: String!) {
+  mutation removeMeal($mealId: Int!) {
     removeMeal(mealId: $mealId) {
       _id
       username
