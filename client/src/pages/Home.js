@@ -27,6 +27,7 @@ export default function Home() {
     const [query, setQuery] = useState('');
     const [recipes, setRecipes] = useState([]);
     const [healthLabel, setHealthLabel] = useState('alcohol-free');
+    const [number, setNumber] = useState('10');
     const [savedMealIds, setSavedMealIds] = useState(getSavedMealIds());
 
     useEffect(() => {
@@ -39,7 +40,7 @@ export default function Home() {
 
     const {REACT_APP_API_KEY, REACT_APP_ID} = process.env;
 
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${REACT_APP_ID}&app_key=${REACT_APP_API_KEY}&from=0&to=20&health=${healthLabel}`;
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${REACT_APP_ID}&app_key=${REACT_APP_API_KEY}&from=0&to=${number}&health=${healthLabel}`;
 
     // fetch data from api
     const getRecipeInfo = async () => {
@@ -65,9 +66,14 @@ export default function Home() {
         e.preventDefault();
         getRecipeInfo();
     };
-    // handles the select menu
+    // handles the health select menu
     const handleHealth = (e) => {
         setHealthLabel(e.target.value);
+    };
+
+    // handles the number select menu
+    const handleNumber = (e) => {
+        setNumber(e.target.value);
     };
 
     // save meal to profile
@@ -104,8 +110,8 @@ export default function Home() {
                     <Text>Start by searching your ingredient below and be specific if you want to. Once logged in you will be able to save your favourite meals.</Text>
                 </VStack>
                 <form className='Forms' onSubmit={handleSearchSubmit}>
-                    <HStack w='full'>
-                        <FormControl isRequired borderColor='black' borderWidth={2} borderRadius={10}>
+                    <HStack w='full' justifyContent='center'>
+                        <FormControl isRequired w='50%' borderColor='black' borderWidth={2} borderRadius={10}>
                             <Input
                             name='search'
                             type='text'
@@ -136,6 +142,16 @@ export default function Home() {
                             <option value='peanut-free'>Peanut free</option>
                             <option value='fish-free'>Fish free</option>
                         </Select>
+                        <Select maxW={20} bg='white'
+                                value={number}
+                                onChange={handleNumber}
+                                placeholder='Number of results'
+                        >
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                        </Select>
                     </HStack>
                 </form>
 
@@ -152,7 +168,7 @@ export default function Home() {
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
                                         />
-                                    <HStack borderBottom='outset' pb={4} spacing={4}>
+                                    <HStack borderBottom='outset' w='full' justifyContent='center' pb={4} spacing={4}>
                                         <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
                                             <Rating />

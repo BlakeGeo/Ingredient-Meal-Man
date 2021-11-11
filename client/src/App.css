@@ -132,3 +132,9 @@ input[type='radio'] {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
+@media  screen and (max-width: 800px) {
+  .loginStack {
+    min-width: 80%;
+  }
+}

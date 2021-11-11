@@ -16,6 +16,8 @@ import { SimpleGrid,
         IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import Rating from '../components/Rating';
+
+
 export default function Recipes() {
     const { loading, data } = useQuery(GET_ME);
     const userData = data?.me || [];
@@ -52,6 +54,9 @@ export default function Recipes() {
         <Box w='100%' minH='100vh' px={10} py={20} bgGradient="linear(to-r, blue.100, cyan.300)">
             <Flex py={10}>
                 <VStack w='full' h='full' p={4} spacing={10}>
+                    <Heading>
+                        Have a look at all of the great recipes you've saved.
+                    </Heading>
                     <Text align='left' fontSize='xl' fontWeight='bold'>
                         {userData.savedMeals.length
                         ? `Viewing ${userData.savedMeals.length} saved ${userData.savedMeals.length === 1 ? 'meal' : 'meals'}:`
@@ -65,7 +70,7 @@ export default function Recipes() {
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
                                         />
-                                    <HStack borderBottom='outset' pb={4} spacing={4}>
+                                    <HStack borderBottom='outset' w='full' justifyContent='center' pb={4} spacing={4}>
                                         <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
                                             <Rating />
