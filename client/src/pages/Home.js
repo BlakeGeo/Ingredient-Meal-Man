@@ -103,7 +103,7 @@ export default function Home() {
             <VStack w='full' h='full' p={4} spacing={10}>
                 <Heading textAlign='center'>Welcome to Ingredient Meal Man</Heading>
                 <VStack textAlign='center' spacing={3}>
-                    <Text>Here at Ingredient Meal Man we strive to acheive zero waste pantries. Don't let those odd ingredients go to waste!</Text>
+                    <Text>Here at Ingredient Meal Man we strive to achieve zero waste pantries. Don't let those odd ingredients go to waste!</Text>
                     <Text>Start by searching your ingredient below and be specific if you want to. Once logged in you will be able to save your favourite meals.</Text>
                 </VStack>
                 <form className='Forms' onSubmit={handleSearchSubmit}>

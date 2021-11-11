@@ -9,6 +9,7 @@ export default function Rating() {
 
     return (
         <HStack spacing={1}>
+            {/* creates 5 stars */}
             {[ ...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
 

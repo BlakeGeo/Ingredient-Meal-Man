@@ -11,8 +11,7 @@ export default function Navbar() {
       };
 
   useEffect(() => {
-
-
+    // useEffect to ensure it loads after the DOM
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector("#navBar");
     const navLink = document.querySelectorAll("#link-navbar");
