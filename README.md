@@ -41,10 +41,21 @@ This app has been developed with MERN, allowing the user to create an account, s
 - [Contact](#contact)
 
 ## Installation
-💾 This web app requires no installation and can be viewed by clicking [here]().
+💾 This web app requires no installation and can be viewed by clicking [here](https://ingredient-meal-man.herokuapp.com/).
 
 ## Usage
 You are able to search for ingredients and recipes from the home page, however if you want full access to the features you will need to create an account. Once you are logged in you are able to save your favourite recipes by clicking the circle tick icon. You can view your saved recipes by going to your personal recipes page, where you are also able to remove the recipes from your page if you require.
+
+![image](https://user-images.githubusercontent.com/81725246/141274912-fa34ecc5-ac58-4f35-91de-4bbfe12fe21b.png)
+
+<br>
+
+![image](https://user-images.githubusercontent.com/81725246/141275082-404f3e07-73f8-4327-a30b-7fffc311ce08.png)
+
+<br>
+
+![image](https://user-images.githubusercontent.com/81725246/141275249-044ed953-38d8-4837-b3c2-296bb21366cf.png)
+
   
 ## Built With
 
