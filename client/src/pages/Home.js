@@ -20,6 +20,7 @@ import { Select,
         IconButton } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
+import Rating from '../components/Rating';
 
 
 
@@ -41,7 +42,7 @@ export default function Home() {
 
     const {REACT_APP_API_KEY, REACT_APP_ID} = process.env;
 
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${REACT_APP_ID}&app_key=${REACT_APP_API_KEY}&from=0&to=4&health=${healthLabel}`;
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${REACT_APP_ID}&app_key=${REACT_APP_API_KEY}&from=0&to=20&health=${healthLabel}`;
 
     // fetch data from api
     const getRecipeInfo = async () => {
@@ -153,10 +154,11 @@ export default function Home() {
                                 <VStack w='full' h='full' spacing={4} px={5}>
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
-                                        />
+                                    />
                                     <HStack borderBottom='outset' pb={4} spacing={4}>
                                         <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
+                                            <Rating/>
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                
                                         </VStack>
                                         {Auth.loggedIn() && (

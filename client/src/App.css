@@ -82,6 +82,15 @@ footer h3 {
   opacity: 0.3;
 }
 
+input[type='radio'] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;;
+  transition: color 300ms;
+}
+
 @media  screen and (max-width: 480px) {
 	#navBar {
 		position: fixed;

@@ -15,6 +15,7 @@ import { SimpleGrid,
         Image, 
         IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
+import Rating from '../components/Rating';
 
 export default function Recipes() {
     const { loading, data } = useQuery(GET_ME);
@@ -68,6 +69,7 @@ export default function Recipes() {
                                     <HStack borderBottom='outset' pb={4} spacing={4}>
                                         <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
+                                            <Rating />
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                
                                         </VStack>
                                             <IconButton
