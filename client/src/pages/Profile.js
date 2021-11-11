@@ -16,7 +16,6 @@ import { SimpleGrid,
         IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import Rating from '../components/Rating';
-
 export default function Recipes() {
     const { loading, data } = useQuery(GET_ME);
     const userData = data?.me || [];

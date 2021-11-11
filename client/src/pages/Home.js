@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import Axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import { SAVE_MEAL } from "../utils/mutations";
 import Auth from '../utils/auth';
 import { saveMealIds, getSavedMealIds } from "../utils/localStorage";
@@ -21,8 +20,6 @@ import { Select,
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
 import Rating from '../components/Rating';
-
-
 
 
 export default function Home() {
@@ -150,15 +147,15 @@ export default function Home() {
                 <SimpleGrid columns={{sm: 2, md: 3, lg: 4}} spacing={10}>
                     {recipes.map((meal) => {
                         return (
-                            <Flex key={uuidv4()} className='recipeCard' >
+                            <Flex key={meal.mealId} className='recipeCard' >
                                 <VStack w='full' h='full' spacing={4} px={5}>
                                     <Image src={meal.imageURL}
                                             alt={`Photo of ${meal.label}`}
-                                    />
+                                        />
                                     <HStack borderBottom='outset' pb={4} spacing={4}>
                                         <VStack spacing={2}>
                                             <Text fontSize='md' fontWeight='bold' textAlign='center'>{meal.label}</Text>
-                                            <Rating/>
+                                            <Rating />
                                             <Link onClick={() => window.open(meal.mealURL)}>Recipe</Link>                                                
                                         </VStack>
                                         {Auth.loggedIn() && (
